@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://q3vaw81qpes8"]
+
+[ext_resource type="PackedScene" uid="uid://dynae0xc0tv8o" path="res://player.tscn" id="1_f3sb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv5m4"]
+size = Vector2(3000, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
+size = Vector2(800, 200)
+
+[node name="World" type="Node2D" unique_id=2105246437]
+
+[node name="Sky" type="ColorRect" parent="." unique_id=101709340]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.35253698, 0.6928315, 0.7648753, 1)
+
+[node name="Sun" type="ColorRect" parent="." unique_id=553100029]
+offset_left = 950.0
+offset_top = 80.0
+offset_right = 1050.0
+offset_bottom = 180.0
+color = Color(1, 0.8392157, 0, 1)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1593301146]
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=1735877021]
+offset_left = -860.0
+offset_top = 570.0
+offset_right = 2140.0
+offset_bottom = 720.0
+color = Color(0.29803923, 0.6862745, 0.3137255, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=482298153]
+position = Vector2(644, 641)
+shape = SubResource("RectangleShape2D_gv5m4")
+
+[node name="Water" type="StaticBody2D" parent="." unique_id=122036278]
+
+[node name="ColorRect" type="ColorRect" parent="Water" unique_id=746773900]
+offset_left = 239.0
+offset_top = 564.0
+offset_right = 1039.0
+offset_bottom = 764.0
+color = Color(0.08235294, 0.39607844, 0.7529412, 0.7058824)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water" unique_id=2047356083]
+position = Vector2(640, 666)
+shape = SubResource("RectangleShape2D_f3sb7")
+debug_color = Color(0, 0.5056363, 0.5929078, 0.41960785)
+
+[node name="Player" parent="." unique_id=226042608 instance=ExtResource("1_f3sb7")]
+position = Vector2(146, 562)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=989906491]
+position_smoothing_enabled = true
