@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dg814fnklxpxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv5m4"]
+size = Vector2(3000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
+size = Vector2(3000, 500)
+
+[node name="World" type="Node2D" unique_id=1757521856]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=925753443]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.9040313, 0.9040312, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1846812738]
+position = Vector2(0, 300)
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=598545955]
+offset_right = 3000.0
+offset_bottom = 500.0
+color = Color(0.3523808, 0.72876835, 0.33457175, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=861966197]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1301601065]
+shape = SubResource("RectangleShape2D_gv5m4")
+
+[node name="Water" type="StaticBody2D" parent="." unique_id=151824806]
+position = Vector2(0, 600)
+
+[node name="ColorRect" type="ColorRect" parent="Water" unique_id=72203896]
+offset_right = 3000.0
+offset_bottom = 500.0
+color = Color(0, 0.18431373, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water" unique_id=540809586]
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=41728646]
+position = Vector2(680, 360)
